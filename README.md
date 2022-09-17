@@ -6,7 +6,7 @@
 
 ### Projeto construído no evento Next Level Week da Rocketseat.
 
-[Clique aqui para acessar a página](https://nathanmarques2001.github.io/NLW-Esports/)
+[🔗 Clique aqui para acessar a página](https://nathanmarques2001.github.io/NLW-Esports/)
 
 >## 🛠 Tecnologias
 
