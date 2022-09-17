@@ -29,17 +29,53 @@ body * {
     line-height: 160%;
 }
 
+header {
+    text-align: center;
+    /*o css reconhece a imagem como um texto*/
+    margin-top: 32px;
+    height: 152px;
+}
+
+header div {
+    width: 120px;
+    margin: auto;
+    /*aplica a margem com base no pai, como
+    o header esta alinhando todo o texto
+    ele reconhece esse alinhamento como margin automatica*/
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+    display: flex;
+    /*como a margin é auto e só existe uma tag na div
+    o display flex apenas centraliza a imagem do html
+    e a imagem colorida do css*/
+    padding: 4px;
+    transition: transform .3s;
+    /*a transição testa se o transform existe, se existir fala que a transição dele durará 0,3s*/
+}
+
+header div:hover {
+    /*o hover adiciona uma funcionalidade quando o mouse passar em cima do elemento referido*/
+    transform: scale(1.1);
+    /*transforma o elemento, aumentando ele numa escala de 1.1*/
+}
+
+header img {
+    width: 100%;
+    /*largura fica em 100% em relação ao pai <div>*/
+    border-radius: 50%;
+}
+
 main {
     max-width: 580px;
     /*tudo que tiver dentro vai manter esse tamanho máximo*/
     width: 90%;
     /*tudo terá a largura máxima de 90% do tamanho da tela*/
-    margin: auto;
-    /*acerta todos os elementos com a margem, obedecendo o width 90%*/
+    margin: 32px auto;
+    /*acerta todos os elementos com a margem, obedecendo o width 90%
+    o primeiro valor é reconhecido como top e bottom e o segundo como left e right*/
     display: grid;
     /*posiciona as caixas uma abaixo da outra*/
     gap: 24px;
-    margin-top: 32px;
 }
 
 section {
@@ -81,6 +117,14 @@ section ul {
     margin-top: 24px;
 }
 
+section ul li {
+    transition: transform .3s;
+}
+
+section ul li :hover {
+    transform: scale(1.1);
+}
+
 .games-list img {
     width: 90px;
     /*ajusta a largura das imagens para 90px*/
@@ -91,4 +135,57 @@ section ul {
 .channel-list img {
     border-radius: 50%;
     width: 70px;
+    border: 1px solid #443E54;
+}
+
+/* animation */
+
+header div {
+    animation: fromTop .7s .2s backwards;
+    /*backwards executa os keyframes primeiro*/
+}
+
+main section {
+    animation: fromBottom .7s backwards;
+}
+
+/*nth-child vai nos filhos da tag*/
+main section:nth-child(1) {
+    animation-delay: 0;
+}
+
+main section:nth-child(2) {
+    animation-delay: .3s;
+}
+
+main section:nth-child(3) {
+    animation-delay: .6s;
+}
+
+@keyframes fromTop {
+
+    /*from - como começa*/
+    from {
+        opacity: 0;
+        transform: translateY(-30px)
+            /*translateY - move as coisas no eixo Y*/
+    }
+
+    /*to - como termina*/
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
 }
